@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "portfolios",
+  "info": {
+    "name": "portfolio",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": false,
+      "regex": "."
+    },
+    "structure": {
+      "type": "json",
+      "required": true
+    },
+    "owner": {
+      "via": "portfolios",
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "artifacts": {
+      "via": "portfolio",
+      "collection": "artifact"
+    },
+    "topic": {
+      "type": "string"
+    },
+    "subject": {
+      "type": "string"
+    },
+    "grades": {
+      "type": "json"
+    }
+  }
+}

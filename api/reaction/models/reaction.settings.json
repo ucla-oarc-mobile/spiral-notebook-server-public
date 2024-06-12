@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "reactions",
+  "info": {
+    "name": "reaction",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "sharedArtifact": {
+      "via": "reactions",
+      "model": "shared-artifact"
+    },
+    "owner": {
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "value": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

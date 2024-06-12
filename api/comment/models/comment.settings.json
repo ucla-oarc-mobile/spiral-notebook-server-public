@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "comments",
+  "info": {
+    "name": "comment"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "text": {
+      "type": "string",
+      "required": true,
+      "regex": "."
+    },
+    "owner": {
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "sharedArtifact": {
+      "via": "comments",
+      "model": "shared-artifact"
+    }
+  }
+}

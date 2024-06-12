@@ -1,0 +1,57 @@
+{
+  "kind": "collectionType",
+  "collectionName": "shared_portfolios",
+  "info": {
+    "name": "sharedPortfolio",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "regex": "."
+    },
+    "structure": {
+      "type": "json",
+      "required": true
+    },
+    "topic": {
+      "type": "string"
+    },
+    "subject": {
+      "type": "string"
+    },
+    "grades": {
+      "type": "json"
+    },
+    "plcName": {
+      "type": "string"
+    },
+    "plcGoals": {
+      "type": "string"
+    },
+    "sharedArtifacts": {
+      "via": "sharedPortfolio",
+      "collection": "shared-artifact"
+    },
+    "members": {
+      "via": "sharedPortfolios",
+      "plugin": "users-permissions",
+      "collection": "user",
+      "dominant": true
+    },
+    "owner": {
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "templateStructure": {
+      "type": "json"
+    }
+  }
+}

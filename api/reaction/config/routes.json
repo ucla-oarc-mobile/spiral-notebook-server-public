@@ -1,0 +1,63 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/reactions",
+      "handler": "reaction.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/reactions/count",
+      "handler": "reaction.count",
+      "config": {
+        "policies": ["global::forbidden"]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/reactions/available",
+      "handler": "reaction.available",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/reactions/:id",
+      "handler": "reaction.findOne",
+      "config": {
+        "policies": ["global::isMember"]
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/reactions",
+      "handler": "reaction.create",
+      "config": {
+        "policies": ["global::isMember"]
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/reactions/:id",
+      "handler": "reaction.update",
+      "config": {
+        "policies": ["global::forbidden"]
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/reactions/:id",
+      "handler": "reaction.delete",
+      "config": {
+        "policies": [
+          "global::isOwner",
+          "global::isMember"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "enabled": true,
+  "provider": "local",
+  "providerOptions": {
+    "sizeLimit": 1073741824
+  },
+  "actionOptions": {}
+}

@@ -1,0 +1,164 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/shared-portfolios",
+      "handler": "shared-portfolio.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/shared-portfolios/count",
+      "handler": "shared-portfolio.count",
+      "config": {
+        "policies": ["global::forbidden"]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/shared-portfolios/export",
+      "handler": "shared-portfolio.exportAll",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/shared-portfolios/:id",
+      "handler": "shared-portfolio.findOne",
+      "config": {
+        "policies": ["global::isMemberOrInvitee"]
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/shared-portfolios",
+      "handler": "shared-portfolio.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/shared-portfolios/:id",
+      "handler": "shared-portfolio.update",
+      "config": {
+        "policies": ["global::isOwner"]
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/shared-portfolios/:id",
+      "handler": "shared-portfolio.delete",
+      "config": {
+        "policies": ["global::isOwner"]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/shared-portfolios/:id/members",
+      "handler": "shared-portfolio.members",
+      "config": {
+        "policies": ["global::isOwner"]
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/shared-portfolios/:id/leave",
+      "handler": "shared-portfolio.leave",
+      "config": {
+        "policies": ["global::isMember"]
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/shared-portfolios/:id/remove-user/:userId",
+      "handler": "shared-portfolio.removeUser",
+      "config": {
+        "policies": ["global::isOwner"]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/shared-portfolios/:id/shared-artifacts/:artifactId/gate-check",
+      "handler": "shared-artifact.gateCheck",
+      "config": {
+        "policies": ["global::isMember"]
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/shared-portfolios/:id/shared-artifacts/:artifactId/lock",
+      "handler": "shared-artifact.lock",
+      "config": {
+        "policies": ["global::isMember"]
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/shared-portfolios/:id/shared-artifacts/:artifactId/unlock",
+      "handler": "shared-artifact.unlock",
+      "config": {
+        "policies": ["global::isMember"]
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/shared-portfolios/:id/shared-artifacts/:artifactId/responses",
+      "handler": "shared-artifact.updateInPortfolio",
+      "config": {
+        "policies": ["global::isMember"]
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/shared-portfolios/:id/shared-artifacts/:artifactId/documents",
+      "handler": "shared-artifact.createDocument",
+      "config": {
+        "policies": ["global::isMember"]
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/shared-portfolios/:id/shared-artifacts/:artifactId/documents/:documentId",
+      "handler": "shared-artifact.deleteDocument",
+      "config": {
+        "policies": ["global::isMember"]
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/shared-portfolios/:id/shared-artifacts/:artifactId/images",
+      "handler": "shared-artifact.createImage",
+      "config": {
+        "policies": ["global::isMember"]
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/shared-portfolios/:id/shared-artifacts/:artifactId/images/:imageId",
+      "handler": "shared-artifact.deleteImage",
+      "config": {
+        "policies": ["global::isMember"]
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/shared-portfolios/:id/shared-artifacts/:artifactId/videos",
+      "handler": "shared-artifact.createVideo",
+      "config": {
+        "policies": ["global::isMember"]
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/shared-portfolios/:id/shared-artifacts/:artifactId/videos/:videoId",
+      "handler": "shared-artifact.deleteVideo",
+      "config": {
+        "policies": ["global::isMember"]
+      }
+    }
+  ]
+}

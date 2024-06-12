@@ -1,0 +1,60 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/shared-artifacts",
+      "handler": "shared-artifact.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/shared-artifacts/count",
+      "handler": "shared-artifact.count",
+      "config": {
+        "policies": ["global::forbidden"]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/shared-artifacts/:id",
+      "handler": "shared-artifact.findOne",
+      "config": {
+        "policies": ["global::isMemberOrInvitee"]
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/shared-artifacts",
+      "handler": "shared-artifact.create",
+      "config": {
+        "policies": ["global::isMember"]
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/shared-artifacts/:id",
+      "handler": "shared-artifact.update",
+      "config": {
+        "policies": ["global::isMember"]
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/shared-artifacts/:id",
+      "handler": "shared-artifact.delete",
+      "config": {
+        "policies": ["global::isMember"]
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/shared-artifacts/:id/share",
+      "handler": "shared-artifact.share",
+      "config": {
+        "policies": ["global::isMember"]
+      }
+    }
+  ]
+}

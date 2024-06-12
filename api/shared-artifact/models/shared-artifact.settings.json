@@ -1,0 +1,94 @@
+{
+  "kind": "collectionType",
+  "collectionName": "shared_artifacts",
+  "info": {
+    "name": "sharedArtifact",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "structure": {
+      "type": "json"
+    },
+    "responses": {
+      "type": "json"
+    },
+    "images": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "videos": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "documents": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "comments": {
+      "via": "sharedArtifact",
+      "collection": "comment"
+    },
+    "sharedPortfolio": {
+      "via": "sharedArtifacts",
+      "model": "shared-portfolio"
+    },
+    "reactions": {
+      "via": "sharedArtifact",
+      "collection": "reaction"
+    },
+    "owner": {
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "nextCaption": {
+      "type": "string",
+      "required": true
+    },
+    "portfolioTopic": {
+      "type": "string"
+    },
+    "portfolioSubject": {
+      "type": "string"
+    },
+    "portfolioGrades": {
+      "type": "json"
+    },
+    "lock": {
+      "type": "uid",
+      "private": true
+    },
+    "lockedUntil": {
+      "type": "datetime",
+      "private": true
+    },
+    "lockedBy": {
+      "private": true,
+      "plugin": "users-permissions",
+      "model": "user"
+    }
+  }
+}

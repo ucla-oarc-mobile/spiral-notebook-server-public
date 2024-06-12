@@ -1,0 +1,124 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/portfolios",
+      "handler": "portfolio.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/portfolios/count",
+      "handler": "portfolio.count",
+      "config": {
+        "policies": ["global::forbidden"]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/portfolios/export",
+      "handler": "portfolio.exportAll",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/portfolios/:id",
+      "handler": "portfolio.findOne",
+      "config": {
+        "policies": ["global::isOwner"]
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/portfolios",
+      "handler": "portfolio.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/portfolios/:id",
+      "handler": "portfolio.update",
+      "config": {
+        "policies": ["global::isOwner"]
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/portfolios/:id",
+      "handler": "portfolio.delete",
+      "config": {
+        "policies": ["global::isOwner"]
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/portfolios/:id/artifacts/responses",
+      "handler": "artifact.createInPortfolio",
+      "config": {
+        "policies": ["global::isOwner"]
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/portfolios/:id/artifacts/:artifactId/responses",
+      "handler": "artifact.updateInPortfolio",
+      "config": {
+        "policies": ["global::isOwner"]
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/portfolios/:id/artifacts/:artifactId/documents",
+      "handler": "artifact.createDocument",
+      "config": {
+        "policies": ["global::isOwner"]
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/portfolios/:id/artifacts/:artifactId/documents/:documentId",
+      "handler": "artifact.deleteDocument",
+      "config": {
+        "policies": ["global::isOwner"]
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/portfolios/:id/artifacts/:artifactId/images",
+      "handler": "artifact.createImage",
+      "config": {
+        "policies": ["global::isOwner"]
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/portfolios/:id/artifacts/:artifactId/images/:imageId",
+      "handler": "artifact.deleteImage",
+      "config": {
+        "policies": ["global::isOwner"]
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/portfolios/:id/artifacts/:artifactId/videos",
+      "handler": "artifact.createVideo",
+      "config": {
+        "policies": ["global::isOwner"]
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/portfolios/:id/artifacts/:artifactId/videos/:videoId",
+      "handler": "artifact.deleteVideo",
+      "config": {
+        "policies": ["global::isOwner"]
+      }
+    }
+  ]
+}

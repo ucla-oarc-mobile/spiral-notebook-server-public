@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "invitations",
+  "info": {
+    "name": "invitation"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "from": {
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "to": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "invitations"
+    },
+    "sharedPortfolio": {
+      "model": "shared-portfolio"
+    }
+  }
+}

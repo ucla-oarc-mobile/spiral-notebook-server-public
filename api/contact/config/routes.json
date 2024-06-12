@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/contact",
+      "handler": "contact.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/contact",
+      "handler": "contact.update",
+      "config": {
+        "policies": ["global::forbidden"]
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/contact",
+      "handler": "contact.delete",
+      "config": {
+        "policies": ["global::forbidden"]
+      }
+    }
+  ]
+}

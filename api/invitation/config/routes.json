@@ -1,0 +1,68 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/invitations",
+      "handler": "invitation.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/invitations/count",
+      "handler": "invitation.count",
+      "config": {
+        "policies": ["global::forbidden"]
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/invitations/:id",
+      "handler": "invitation.findOne",
+      "config": {
+        "policies": ["global::isOwner"]
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/invitations",
+      "handler": "invitation.create",
+      "config": {
+        "policies": ["global::isOwner"]
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/invitations/outside",
+      "handler": "invitation.createOutside",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/invitations/:id",
+      "handler": "invitation.update",
+      "config": {
+        "policies": ["global::forbidden"]
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/invitations/:id",
+      "handler": "invitation.delete",
+      "config": {
+        "policies": ["global::isOwner"]
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/invitations/:id/accept",
+      "handler": "invitation.accept",
+      "config": {
+        "policies": ["global::isOwner"]
+      }
+    }
+  ]
+}

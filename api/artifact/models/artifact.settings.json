@@ -1,0 +1,67 @@
+{
+  "kind": "collectionType",
+  "collectionName": "artifacts",
+  "info": {
+    "name": "artifact",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "portfolio": {
+      "via": "artifacts",
+      "model": "portfolio"
+    },
+    "structure": {
+      "type": "json",
+      "required": false
+    },
+    "responses": {
+      "type": "json",
+      "required": false
+    },
+    "images": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "videos": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "documents": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "parkingLot": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    },
+    "nextCaption": {
+      "type": "string",
+      "default": "A"
+    }
+  }
+}

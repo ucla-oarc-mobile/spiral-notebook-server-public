@@ -1,0 +1,36 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/messages/list",
+      "handler": "messages.list",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/messages/register-token",
+      "handler": "messages.registerToken",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/messages/unregister-token",
+      "handler": "messages.unregisterToken",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/messages/mark-as-read",
+      "handler": "messages.markAsRead",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
